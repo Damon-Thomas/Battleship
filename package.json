@@ -4,6 +4,7 @@
   "description": "Battleship project from The Odin Project",
   "main": "index.js",
   "scripts": {
+    "push": "git subtree push --prefix dist origin gh-pages",
     "test": "jest",
     "watch": "webpack --watch",
     "build": "webpack"
