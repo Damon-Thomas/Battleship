@@ -19,7 +19,7 @@ test('Initialize Board', () => {
 
 test('Place Ships', () => {
     tester.placeShip('Destroyer', 2, 2)
-    tester.placeShip('Aircraft Carrier', 5, 5)
+    tester.placeShip('Aircraft-Carrier', 5, 5)
     tester.placeShip('Cruiser', 0, 3, false)
     expect(tester.board).toEqual([
         [0,0,0,0,0,0,0,0,0,0],
@@ -27,7 +27,7 @@ test('Place Ships', () => {
         [0,0,'Destroyer','Destroyer','Destroyer',0,0,0,0,0],
         ['Cruiser',0,0,0,0,0,0,0,0,0],
         ['Cruiser',0,0,0,0,0,0,0,0,0],
-        [0,0,0,0,0,'Aircraft Carrier','Aircraft Carrier','Aircraft Carrier','Aircraft Carrier','Aircraft Carrier'],
+        [0,0,0,0,0,'Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier'],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
@@ -50,7 +50,7 @@ test('Miss Shots', () => {
         [0,0,'Destroyer','Destroyer','Destroyer',0,0,0,0,0],
         ['Cruiser',0,0,0,0,0,0,0,0,0],
         ['Cruiser',0,0,0,0,3,0,0,0,0],
-        [0,0,0,0,0,'Aircraft Carrier','Aircraft Carrier','Aircraft Carrier','Aircraft Carrier','Aircraft Carrier'],
+        [0,0,0,0,0,'Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier'],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
@@ -66,7 +66,7 @@ test('Attack Ship', () => {
         [0,0,1,'Destroyer','Destroyer',0,0,0,0,0],
         ['Cruiser',0,0,0,0,0,0,0,0,0],
         ['Cruiser',0,0,0,0,3,0,0,0,0],
-        [0,0,0,0,0,'Aircraft Carrier','Aircraft Carrier','Aircraft Carrier','Aircraft Carrier','Aircraft Carrier'],
+        [0,0,0,0,0,'Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier','Aircraft-Carrier'],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0,0],

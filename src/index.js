@@ -1,3 +1,3 @@
-//import '.styles.css'
-import { Ship } from "./ship";
-import { Gameboard } from "./gameboard";
+import './styles.css'
+import { player } from './players';
+import './DOMcontrol'

@@ -18,7 +18,7 @@ function Gameboard() {
     this.fillShipList = () => {
         this.shipList.push(new Ship('Destroyer', 3))
         this.shipList.push(new Ship('Battleship', 4))
-        this.shipList.push(new Ship('Aircraft Carrier', 5))
+        this.shipList.push(new Ship('Aircraft-Carrier', 5))
         this.shipList.push(new Ship('Submarine', 3))
         this.shipList.push(new Ship('Cruiser', 2))
 
@@ -37,13 +37,17 @@ function Gameboard() {
 
 
     this.placeShip = (shipName, startx, starty, horizontal = true) => {
+        
         let activeShip = this.getShipObjFromName(shipName)
+        
         for(let i = 0; i < activeShip.length; i++) {
             if (horizontal === true) {
+                
                 this.board[starty][startx + i] = shipName
                 
             }
             else {
+                
                 this.board[starty + i][startx] = shipName
                 
             }
@@ -62,29 +66,35 @@ function Gameboard() {
     }
 
     this.receiveAttack = (x, y) => {
-        if (this.board[x][y] === 0) {
-            this.board[x][y] = 3
+        if (this.board[y][x] === 0) {
+            this.board[y][x] = 3
+            
+            return 3
         }
-        else if (this.board[x][y] === 1 || this.board[x][y] === 2) {
+        else if (this.board[y][x] === 1 || this.board[y][x] === 2) {
+            console.log(`double attack at ${y}, ${x}`)
             throw console.error('Invalid Attack Bug. Should not be able to attack already attacked square');
 
         }
         else {
-            let shipName = this.board[x][y]
+            let shipName = this.board[y][x]
             let activeShip = this.getShipObjFromName(shipName)
-            this.board[x][y] = 1
+            this.board[y][x] = 1
             activeShip.hit()
             if(activeShip.isSunk()) {
                 for (let i = 0; i < this.shipList.length; i++) {
                     if (shipName === this.shipList[i].name){
                         this.shipList.splice(i, 1)
-                        console.log(this.shipList)
-                        //ship sunk and list upated. check if any ships left somewhere
+                        
+                        
                     }
                 }
             }
+            
+            return 1
         
         }
+        
         }
     this.anyShipsLeft = () => {
         if (this.shipList.length > 0) {

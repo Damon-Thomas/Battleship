@@ -1,0 +1,274 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+@font-face {
+    font-family: 'space_cruiseritalic';
+    src: url('./font/spacec5i-webfont.woff2') format('woff2'),
+         url('./font/spacec5i-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'space_cruiser_expandeexpanded';
+    src: url('./font/spacec5e2-webfont.woff2') format('woff2'),
+         url('./font/spacec5e2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'space_cruiser_condensedCn';
+    src: url('./font/spacec5c2-webfont.woff2') format('woff2'),
+         url('./font/spacec5c2-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html {
+    cursor: pointer
+}
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0f2940;
+}
+
+.title {
+    font-size: 4rem;
+    font-family: 'space_cruiser_expandeexpanded', Helvetica, sans-serif;
+    background-image: linear-gradient(#e34e50, #fdfc92, #fefffa);
+    color: transparent;
+    background-clip: text;
+    padding: 1rem;
+    margin: 2rem;
+}
+
+.game-space {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    width: 100vw;
+    min-height: 50vh;
+}
+
+.board-space {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.board-title {
+    margin: 2rem;
+    padding: .5rem;
+    font-size: 2rem;
+    font-family: 'space_cruiser_condensedCn', Helvetica, sans-serif;
+    color: white;
+    border-bottom: 2px solid #fdfc92;
+    z-index: 2;
+}
+
+.title-container {
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.empty, .holder{
+    width : 6rem;
+    font-size: 4rem;
+    color: peru;
+}
+
+.holder {
+    text-shadow: 0px 0px 4px black;
+}
+
+.holder:hover {
+    text-shadow: 0px 0px 4px #fdfc92;
+}
+
+.players-board, .computers-board {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    width: 500px;
+    height: 500px
+}
+
+.square, .ship-square {
+    height: 3rem;
+    width: 3rem;
+    border: 1px solid white;
+    
+    background: rgb(103,208,198);
+    background: radial-gradient(circle, rgba(103,208,198,1) 0%, rgba(56,147,144,1) 100%);
+}
+
+.ship-square {
+    background: grey;
+}
+
+.ship-set-up {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .75rem;
+}
+
+.ship-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .25rem;
+    
+}
+.ship:hover {
+    box-shadow: 0px 0px 8px #fdfc92;
+}
+
+.ship-name {
+    font-family: 'space_cruiser_condensedCn', Helvetica, sans-serif;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.ship {
+    display: flex;
+}
+
+.ship-selection, .ship-selected {
+    background: grey;
+}
+
+.active > .ship > .ship-square {
+    background-color: peru;
+}
+
+.active > .ship-name {
+    color: peru;
+}
+
+.conflict {
+    background-color: #e34e50;
+}
+
+.start-horizontal {
+    box-shadow:
+     inset  4px  0px  0px black,
+     inset  0px  4px  0px black,
+     inset  0px  -4px  0px black;
+}
+
+
+.mid-horizontal {
+    box-shadow:
+     inset  0   0  4px black,
+     inset  0  -4px 0 black,
+     inset  0   4px 0 black;
+}
+
+.end-horizontal {
+    box-shadow:
+     inset  -4px  0px  0px black,
+     inset  0px  4px  0px black,
+     inset  0px  -4px  0px black;
+}
+
+.start-vertical {
+    box-shadow:
+     inset  0px  4px  0px black,
+     inset  4px  0px  0px black,
+     inset  -4px  0px  0px black;
+}
+
+
+.mid-vertical {
+    box-shadow:
+     inset  0   0  0 black,
+     inset  4px 0 0 black,
+     inset  -4px 0 0 black;
+}
+
+.end-vertical {
+    box-shadow:
+     inset  0px  -4px  0px black,
+     inset  4px  0px  0px black,
+     inset  -4px  0px  0px black;
+}
+
+.play-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.start-title {
+    font-size: 2rem;
+    font-family: 'space_cruiser_condensedCn', Helvetica, sans-serif;
+    color: white;
+}
+
+.start-button {
+    padding: 1rem;
+    color: peru;
+    font-size: 1.5rem;
+    font-family: 'space_cruiser_condensedCn', Helvetica, sans-serif;
+}
+
+.start-button:hover {
+    box-shadow: 0px 0px 6px peru;
+}
+
+.miss {
+    background:white;
+    background: radial-gradient(circle, white 0%, grey 100%);
+}
+
+.hit {
+    background: red;
+    background: radial-gradient(circle, red 0%, #e34e50 100%);
+}
+
+.play-again {
+    padding: 2rem;
+    color: peru;
+    font-size: 2rem;
+    font-family: 'space_cruiser_condensedCn', Helvetica, sans-serif;
+}
+
+.final-message {
+    margin: 2rem;
+    padding: .5rem;
+    font-size: 2rem;
+    font-family: 'space_cruiser_condensedCn', Helvetica, sans-serif;
+    color: white;
+}
